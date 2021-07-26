@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/',
-  multer({dest: '/tmp/samplefup/'}).single('file'),
+  multer({dest: './uploads/'}).single('file'),
   (req, res) => {
     // multerが/tmp/samplefup/配下にファイルを作成
 
