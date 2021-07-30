@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <a href="upload/"><p>登録</p></a>
+
+  <table>
+    <tr>
+      <th>サンプル名</th>
+      <th>更新日</th>
+      <th>ファイル名</th>
+    </tr>
+    <% for(var i=0; i<data.length; i++) { %>
+    <tr>
+      <td><%= data[i].sample_name%></td>
+      <td><%- data[i].created_at%></td>
+      <td><%- data[i].csv_file%></td>
+      <td><a href=<%- "download/" + data[i].csv_file%>>download</a></td>
+    </tr>
+    <% } %>
+  </table> 
+</body>
 </html>

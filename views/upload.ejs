@@ -1,87 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    <h1>スペクトルデータの登録</h1>
-
+  <h1>測定データの登録</h1>
     <form action="/upload/" method="POST" enctype="multipart/form-data">
-
-        <h3>Spectral data</h3>
-        <hr>
-        <table>
-            <tr>
-                <th>サンプル名</th>
-                <td><input type="text" name="sample_name" /></td>
-            </tr>
-            <tr>
-                <th>ファイル</th>
-                <td><input type="file" name="csv_file"></td>
-            </tr>
-        </table>
-        
-        
-
-        <h3>Device settings</h3>
-        <hr>
-        <table>
-            <tr>
-                <th>測定装置</th>
-                <td><input type="text" name="instrument"></td>
-            </tr>
-            <tr>
-                <th>波長間隔</th>
-                <td><input type="number" name="wavelength_interval"></td>
-            </tr>
-            <tr>
-                <th>スリット幅</th>
-                <td><input type="number" name="slit_width"></td>
-            </tr>
-            <tr>
-                <th>光路長</th>
-                <td><input type="number" name="optical_path_length" value="中速"></td>
-            </tr>
-            <tr>
-                <th>スキャン速度</th>
-                <td><input type="text" name="scan_speed"></td>
-            </tr>
-            <tr>
-                <th>備考</th>
-                <td><textarea rows="10" cols="60" name="setting_remarks"></textarea></td>
-            </tr>
-        </table>
-             
-
-        <h3>Condtions</h3>
-        <hr>
-        <table>
-            <tr>
-                <th>バッファー組成</th>
-                <td><input type="text" name="buffer"></td>
-            </tr>
-            <tr>
-                <th>温度</th>
-                <td><input type="number" name="temperature"></td>
-            </tr>
-            <tr>
-                <th>エネルギー</th>
-                <td><input type="number" name="energy"></td>
-            </tr>
-            <tr>
-                <th>ピーク波長</th>
-                <td><input type="number" name="peak_wavelength"></td>
-            </tr>
-            <tr>
-                <th>備考</th>
-                <td><textarea rows="10" cols="60" name="condition_remarks"></textarea></td>
-            </tr>
-        </table>
-        
-        <input type="submit" value="Upload">
-    </form>  
+      <h3>Spectral data</h3>
+      <table>
+        <tr>
+          <th>サンプル名</th>
+          <td><input type="text" name="sample_name" /></td>
+        </tr>
+        <tr>
+          <th>ファイル</th>
+          <td><input type="file" name="csv_file"></td>
+        </tr>
+        <tr>
+          <th>測定装置</th>
+          <td><input type="text" name="instrument" placeholder="UV-2450 (Shimadzu)"></td>
+        </tr>
+        <tr>
+          <th>サンプリングピッチ</th>
+          <td><input type="number" name="wavelength_interval" placeholder=1></td>
+        </tr>
+        <tr>
+          <th>スリット幅</th>
+          <td><input type="number" name="slit_width" placeholder=5></td>
+        </tr>
+        <tr>
+          <th>光路長</th>
+          <td><input type="number" name="optical_path_length" placeholder=1></td>
+        </tr>
+        <tr>
+          <th>スキャンスピード</th>
+          <td><input type="text" name="scan_speed" placeholder="中速"></td>
+        </tr>
+        <tr>
+          <th>備考</th>
+          <td><textarea rows="10" cols="60" name="setting_remarks"></textarea></td>
+        </tr>
+        <tr>
+          <th>バッファー組成</th>
+          <td><input type="text" name="buffer" placeholder="Tris-NaCl (pH7.5)"></td>
+        </tr>
+        <tr>
+          <th>温度</th>
+          <td><input type="number" name="temperature" placeholder=20></td>
+        </tr>
+        <tr>
+          <th>エネルギー</th>
+          <td><input type="number" step="0.01" name="energy" placeholder="1.2"></td>
+        </tr>
+        <tr>
+          <th>ピーク波長</th>
+          <td><input type="number" name="peak_wavelength" placeholder="455"></td>
+        </tr>
+        <tr>
+          <th>備考</th>
+          <td><textarea rows="10" cols="60" name="condition_remarks"></textarea></td>
+        </tr>
+      </table>
+    <hr> <input type="submit" value="Upload"> </form>
 </body>
 </html>
