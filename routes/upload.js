@@ -24,10 +24,11 @@ router.get('/', (req, res) => {
 router.post('/',
   upload.single('csv_file'), (req, res) => {
     // single('file')のfileはform要素のname属性と一致
+    const date = new Date();
 
     const sampleName = req.body.sample_name;
     const csvFile = req.file.originalname;
-    const created_at = new Date();
+    const created_at = date.toLocaleString();
 
     const instrument = req.body.instrument;
     const wavelengthInterval = req.body.wavelength_interval;

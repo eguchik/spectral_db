@@ -11,16 +11,20 @@
 
   <table>
     <tr>
+      <th>ID</th>
       <th>サンプル名</th>
       <th>更新日</th>
       <th>ファイル名</th>
     </tr>
     <% for(var i=0; i<data.length; i++) { %>
     <tr>
+      <td><%= data[i].id%></td>
       <td><%= data[i].sample_name%></td>
       <td><%- data[i].created_at%></td>
       <td><%- data[i].csv_file%></td>
-      <td><a href=<%- "download/" + data[i].csv_file%>>download</a></td>
+      <td><a href=<%- "edit/" + data[i].csv_file%>>詳細</a></td>
+      <td><a href=<%- "download/" + data[i].csv_file%>>ダウンロード</a></td>
+      <td><a href=<%- "delete/" + data[i].id%>>削除</a></td>
     </tr>
     <% } %>
   </table> 
