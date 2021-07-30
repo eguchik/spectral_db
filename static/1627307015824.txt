@@ -1,7 +1,0 @@
-pandas
-numpy
-scipy
-jupyterlab
-pymcr
-pyper
-plotly
