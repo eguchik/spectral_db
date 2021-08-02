@@ -8,29 +8,30 @@
 </head>
 <body>
   <style>
+    body{
+      width:50%;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
     h1 {
       text-align: center;
     }
+
     table {
 	    border-collapse: collapse;
-	    width:25%;
       margin-left: auto;
       margin-right: auto;
-    }
-    th.t_top {
-      border-top: #be1309 4px solid;
+
     }
     th {
-      border-bottom: #e3e3e3 1px dotted;
+      border-bottom: #d6a3ff 3px solid;
       text-align: left;
       padding: 10px;
       font-weight: normal;
     }
-    td.t_top {
-      border-top: #b3b3b3 4px solid;
-    }
     td {
-      border-bottom: #e3e3e3 1px dotted;
+      border-bottom: #d6a3ff 1px solid;
       text-align: left;
       padding: 10px;
     }
@@ -43,80 +44,80 @@
   <h1>測定データの詳細</h1>
   <table>
     <tr>
-      <th>サンプル名</th>
+      <td>サンプル名</td>
       <td>
         <%= row.sample_name %>
       </td>
     </tr>
     <tr>
-      <th>ファイル</th>
+      <td>ファイル</td>
       <td>
         <%= row.csv_file %>
       </td>
     </tr>
     <tr>
-      <th>測定装置</th>
+      <td>測定装置</td>
       <td>
         <%= row.instrument %>
       </td>
     </tr>
     <tr>
-      <th>サンプリングピッチ</th>
+      <td>サンプリングピッチ</td>
       <td>
         <%= row.wavelength_interval %>
       </td>
     </tr>
     <tr>
-      <th>スリット幅</th>
+      <td>スリット幅</td>
       <td>
         <%= row.slit_width %>
       </td>
     </tr>
     <tr>
-      <th>光路長</th>
+      <td>光路長</td>
       <td>
         <%= row.optical_path_length %>
       </td>
     </tr>
     <tr>
-      <th>スキャンスピード</th>
+      <td>スキャンスピード</td>
       <td>
         <%= row.scan_speed %>
       </td>
     </tr>
     <tr>
-      <th>備考</th>
+      <td>備考</td>
       <td>
         <%= row.setting_remarks %>
           </textarea>
       </td>
     </tr>
     <tr>
-      <th>バッファー組成</th>
+      <td>バッファー組成</td>
       <td>
         <%= row.buffer %>
       </td>
     </tr>
     <tr>
-      <th>温度</th>
+      <td>温度</td>
       <td>
         <%= row.temperature %>
       </td>
     </tr>
     <tr>
-      <th>エネルギー</th>
+      <td>エネルギー</td>
       <td>
         <%= row.energy %>
       </td>
     </tr>
     <tr>
-      <th>ピーク波長</th>
+      <td>ピーク波長</td>
       <td>
         <%= row.peak_wavelength %>
       </td>
     </tr>
     <tr>
-      <th>備考</th>
+      <td>備考</td>
       <td>
         <%= row.condition_remarks %>
       </td>

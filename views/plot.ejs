@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div id="myDiv"></div>
+
+    <script>
+        let colorGradation = [];
+        let hueList = [...Array(<%= nSample %>).keys()]
+        hueList = hueList.map(x => Number(x));
+        hueList = hueList.map(x => x * 280 /hueList[hueList.length-1]);
+
+        for (const hue of hueList) {
+            colorGradation.push(`hsl(${hue},80%,50%)`);
+        }
+
+        let traces = [];
+        let data = [<%= spectra %>]
+        
+        // 配列をn等分する関数
+        function divideArrIntoPieces(arr, n){
+            var arrList = [];
+            var idx = 0;
+            while(idx < arr.length){
+                arrList.push(arr.splice(idx,idx+n));
+            }         
+            return arrList;
+        }
+
+        var arrList = divideArrIntoPieces(data, <%= nWavelength %>);
+        console.log(arrList);
+
+        for (let i = 0; i < <%= nSample %>; i++) {
+            traces.push({
+                x: [<%= xdata %>],
+                y: arrList[i],
+                type: 'scatter',
+                mode: 'lines',
+                line: {width: 2, dash: 'solid'},
+            })
+        }
+
+        layout = {
+            colorway : colorGradation.reverse(),
+            width: 800,
+            height: 600,
+            xaxis: {
+            title: {text: 'Wavelength (nm)', font: {family: 'Arial', size: 20}},
+            showgrid: false,
+            showline: true,
+            mirror: 'ticks',
+            autotick: false,
+            ticks: 'inside',
+            tick0: 0,
+            dtick: 100,
+            ticklen: 4,
+            tickwidth: 2,
+            tickcolor: '#000000',
+            linecolor: '#000000',
+            linewidth: 2,
+            tickfont: {family: 'Arial', size: 20},
+        },
+        yaxis: {
+            title: {text: 'Absorbance', font: {family: 'Arial', size: 20}},
+            showgrid: false,
+            zeroline: true,
+            showline: true,
+            mirror: 'ticks',
+            autotick: false,
+            ticks: 'inside',
+            tick0: 0,
+            dtick: 0.1,
+            ticklen: 4,
+            tickwidth: 2,
+            tickcolor: '#000000',
+            zerolinecolor: '#000000',
+            zerolinewidth: 2,
+            linecolor: '#000000',
+            linewidth: 2,
+            tickfont: {family: 'Arial', size: 20},
+        },
+        legend: {
+            borderwidth: 0,
+            title: {text: '', font: {family: 'Arial', size: 20}},
+        }
+        };
+
+        Plotly.newPlot('myDiv', traces, layout);
+    </script>
+</body>
+</html>

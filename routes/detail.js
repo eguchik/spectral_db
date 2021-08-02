@@ -7,15 +7,11 @@ const path = require('path');
 
 
 
-
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  db.serialize(() => {
-    db.get('select * from spectra natural join device_settings natural join conditions where id=?', id,
+  db.get('select * from spectra natural join device_settings natural join conditions where id=?', id,
     (err, row) => {
       res.render('detail', {row:row});
-  })
-
   })
 })
 

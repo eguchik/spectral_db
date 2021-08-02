@@ -10,6 +10,7 @@ var uploadRouter = require('./routes/upload');
 var downloadRouter = require('./routes/download');
 var deleteRouter = require('./routes/delete');
 var detailRouter = require('./routes/detail');
+var plotRouter = require('./routes/plot');
 
 var app = express();
 
@@ -32,7 +33,7 @@ app.use('/upload', uploadRouter);
 app.use('/download', downloadRouter);
 app.use('/delete', deleteRouter);
 app.use('/detail', detailRouter);
-
+app.use('/plot', plotRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
