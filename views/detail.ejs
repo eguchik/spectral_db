@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    table {
+	    border-collapse: collapse;
+	    width:25%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    th.t_top {
+      border-top: #be1309 4px solid;
+    }
+    th {
+      border-bottom: #e3e3e3 1px dotted;
+      text-align: left;
+      padding: 10px;
+      font-weight: normal;
+    }
+    td.t_top {
+      border-top: #b3b3b3 4px solid;
+    }
+    td {
+      border-bottom: #e3e3e3 1px dotted;
+      text-align: left;
+      padding: 10px;
+    }
+    tr:hover {
+        background: #d089ff;
+        color: #FFFFFF;
+    }
+  </style>
+
+  <h1>測定データの詳細</h1>
+  <table>
+    <tr>
+      <th>サンプル名</th>
+      <td>
+        <%= row.sample_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>ファイル</th>
+      <td>
+        <%= row.csv_file %>
+      </td>
+    </tr>
+    <tr>
+      <th>測定装置</th>
+      <td>
+        <%= row.instrument %>
+      </td>
+    </tr>
+    <tr>
+      <th>サンプリングピッチ</th>
+      <td>
+        <%= row.wavelength_interval %>
+      </td>
+    </tr>
+    <tr>
+      <th>スリット幅</th>
+      <td>
+        <%= row.slit_width %>
+      </td>
+    </tr>
+    <tr>
+      <th>光路長</th>
+      <td>
+        <%= row.optical_path_length %>
+      </td>
+    </tr>
+    <tr>
+      <th>スキャンスピード</th>
+      <td>
+        <%= row.scan_speed %>
+      </td>
+    </tr>
+    <tr>
+      <th>備考</th>
+      <td>
+        <%= row.setting_remarks %>
+          </textarea>
+      </td>
+    </tr>
+    <tr>
+      <th>バッファー組成</th>
+      <td>
+        <%= row.buffer %>
+      </td>
+    </tr>
+    <tr>
+      <th>温度</th>
+      <td>
+        <%= row.temperature %>
+      </td>
+    </tr>
+    <tr>
+      <th>エネルギー</th>
+      <td>
+        <%= row.energy %>
+      </td>
+    </tr>
+    <tr>
+      <th>ピーク波長</th>
+      <td>
+        <%= row.peak_wavelength %>
+      </td>
+    </tr>
+    <tr>
+      <th>備考</th>
+      <td>
+        <%= row.condition_remarks %>
+      </td>
+    </tr>
+</body>
+</html>

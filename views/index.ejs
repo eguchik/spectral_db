@@ -7,7 +7,38 @@
   <title>Document</title>
 </head>
 <body>
-  <a href="upload/"><p>登録</p></a>
+  <style>
+    body{
+      width:50%;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+    h1 {
+      text-align: center;
+    }
+    table {
+	    border-collapse: collapse;
+    }
+    th {
+      border-bottom: #d6a3ff 3px solid;
+      text-align: left;
+      padding: 10px;
+      font-weight: normal;
+    }
+    td {
+      border-bottom: #d6a3ff 1px solid;
+      text-align: left;
+      padding: 10px;
+    }
+    tr:hover {
+        background: #d089ff;
+        color: #FFFFFF;
+    }
+  </style>
+
+  <h1>Spectral DB</h1>
+  <a href="upload/"><p>Add Data</p></a>
 
   <table>
     <tr>
@@ -15,6 +46,9 @@
       <th>サンプル名</th>
       <th>更新日</th>
       <th>ファイル名</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
     <% for(var i=0; i<data.length; i++) { %>
     <tr>
@@ -22,8 +56,8 @@
       <td><%= data[i].sample_name%></td>
       <td><%- data[i].created_at%></td>
       <td><%- data[i].csv_file%></td>
-      <td><a href=<%- "edit/" + data[i].csv_file%>>詳細</a></td>
-      <td><a href=<%- "download/" + data[i].csv_file%>>ダウンロード</a></td>
+      <td><a href=<%- "detail/" + data[i].id%>>詳細</a></td>
+      <td><a href=<%- "download/" + data[i].csv_file%>>Download</a></td>
       <td><a href=<%- "delete/" + data[i].id%>>削除</a></td>
     </tr>
     <% } %>

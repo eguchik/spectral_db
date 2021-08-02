@@ -9,6 +9,13 @@ router.get('/:id', (req, res, next) => {
     db.run(
         'delete from spectra where id=?', id
     );
+    db.run(
+        'delete from device_settings where id=?', id
+    );
+    db.run(
+        'delete from conditions where id=?', id
+    );
+
     res.redirect('/');
 })
 
